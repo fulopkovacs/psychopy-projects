@@ -1,7 +1,7 @@
-Üdv a kísérletben!
+Thank you for participating in this experiment!
 
-Betűsorokat fog látni a képernyőn. Ha igazi magyar szót lát, nyomja meg az 'i' gombot.
+In the following experiment you'll be shown a series of words.
 
-Ha NEM igazi magyar szót lát, nyomja meg az 'n' gombot.
+After each word, you'll have to decide whether they are fake or not. Please press "f" if you think the word is fake, and "r" if you think it's real.
 
-Kezdhetjük? Nyomja meg bármelyik gombot.
+Are you ready? Press any key to start the experiment!

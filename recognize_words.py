@@ -53,16 +53,16 @@ class WordRecognition(Experiment):
         """
         Register and evaluate the response of the participant to the presented stimulus.
         """
-        response = event.waitKeys(keyList=["i", "n"])[0]
-        if (response.lower() == "i" and stimulus[2] == "ál") or (
-            response.lower() == "n" and stimulus[2] != "ál"
+        response = event.waitKeys(keyList=["f", "r"])[0]
+        if (response.lower() == "f" and stimulus[1] == "fake") or (
+            response.lower() == "r" and stimulus[1] != "fake"
         ):
             result = "correct"
         else:
             result = "incorrect"
 
         rt = self.clock.getTime()
-        self.responses.append([stimulus[0], result, rt])
+        self.responses.append([stimulus[0], stimulus[1], result, rt])
 
     def play_stimuli(self):
         """
@@ -102,7 +102,7 @@ trial.play_stimuli()
 
 # Save output
 trial.save_output(
-    output_csv_header=["word", "result", "reaction_time"],
+    output_csv_header=["word", "condition", "result", "reaction_time"],
     responses=trial.responses,
     participant_name=trial.participant_info["Participant ID:"],
 )
