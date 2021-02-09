@@ -1,9 +1,5 @@
-from psychopy import core, visual, gui, data, event
-from psychopy.tools.filetools import fromFile, toFile
-import numpy
+from psychopy import core, visual, event
 import random
-import os
-import csv
 
 from Experiment import Experiment
 
@@ -92,7 +88,12 @@ trial.get_participant_info(
 )
 
 # Create window for the trial
-trial.win = visual.Window(fullscr=True, allowGUI=True, winType="pyglet", color="black")
+trial.win = visual.Window(
+    fullscr=True,
+    allowGUI=True,
+    winType="pyglet",
+    color="black",
+)
 
 # display instructions
 trial.display_instructions("instructions.txt")
