@@ -139,6 +139,23 @@ class Experiment:
         else:
             raise Exception(f'"{os.path.join(os.getcwd(), input_filename)}" is not found.')
 
+    def save_participant_info(self, *, filename=str):
+        """
+        Save the participants info to the specified csv file.
+        """
+
+        fieldnames = self.participant_info.keys()
+        filepath = os.path.join("data", filename)
+
+        if not os.path.isfile(filepath):
+            with open(filepath, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(fieldnames)
+
+        with open(filepath, "a", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames)
+            writer.writerow(self.participant_info)
+
     def save_output(
         self,
         *,

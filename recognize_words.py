@@ -107,8 +107,8 @@ trial.save_output(
     participant_name=trial.participant_info["Participant ID:"],
 )
 
-trial.display_outro(outro_filename="outro.txt")
-
+# Save participant info to the summary
+trial.save_participant_info(filename="participants-summary.csv")
 
 # Display outro
 trial.display_outro(outro_filename="outro.txt")
