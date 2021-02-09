@@ -160,7 +160,7 @@ class Experiment:
         self,
         *,
         output_csv_header: list,
-        responses: list[list],
+        responses: list,
         participant_name: str,
     ):
         """
