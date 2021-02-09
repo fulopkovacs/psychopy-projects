@@ -1,0 +1,7 @@
+Üdv a kísérletben!
+
+Betűsorokat fog látni a képernyőn. Ha igazi magyar szót lát, nyomja meg az 'i' gombot.
+
+Ha NEM igazi magyar szót lát, nyomja meg az 'n' gombot.
+
+Kezdhetjük? Nyomja meg bármelyik gombot.

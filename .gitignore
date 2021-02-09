@@ -1,0 +1,5 @@
+# omit output
+data/
+
+# omit pycache
+__pycache__/
