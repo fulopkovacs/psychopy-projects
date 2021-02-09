@@ -93,7 +93,7 @@ class Experiment:
             prev_answer = self.participant_info.get(field_message, field[3])
 
             # Mark question if it's required
-            if field[1] is True:
+            if field[1] == "True":
                 field_message = f"{field_message}[*]"
 
             # Add fields
