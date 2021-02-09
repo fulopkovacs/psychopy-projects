@@ -81,7 +81,7 @@ class WordRecognition(Experiment):
 trial = WordRecognition(
     experiment_name="Word recognition",
     psychopy_version="2020.2.10",
-    input_filename="input.csv",
+    input_filename="stimuli.csv",
     randomize_stimuli=True,
 )
 
