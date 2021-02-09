@@ -8,6 +8,7 @@ class Experiment:
         self.init_data_dir()
         self.experiment_name = experiment_name
         self.psychopy_version = psychopy_version
+        self.participant_info = {}
 
     def init_data_dir(self):
         """
@@ -43,49 +44,88 @@ class Experiment:
         self.win.flip()
         event.waitKeys()
 
-    def load_participant_info_config(
+    def load_participant_questions_csv(
         self,
-        participant_info_config_filename: str,
+        csv_filename: str,
     ) -> list:
         """
         Load the questions that the participant must answer before
-        starting the experiment from a config (that is located in
-        the working directory.
+        starting the experiment from a csv (that is located in
+        the working directory).
         """
-        if os.path.isfile(participant_info_config_filename):
-            with open(participant_info_config_filename, "r") as f:
-                return [line.replace("\n", "") for line in f.readlines()]
+        if os.path.isfile(csv_filename):
+            with open(csv_filename, newline="") as f:
+                reader = csv.reader(f)
+                self.participant_info_list = [line for line in reader]
+                self.participant_info_csv_header = self.participant_info_list.pop(0)
         else:
-            raise Exception(
-                f'"{os.path.join(os.getcwd(), participant_info_config_filename)}" is not found.'
-            )
+            raise Exception(f'"{os.path.join(os.getcwd(), csv_filename)}" is not found.')
 
     def get_participant_info(
         self,
         *,
-        participant_info_config_filename: str,
+        participant_info_csv_filename: str,
         title: str,
     ):
         """
         Get the specified pieces of information from the participant
         (before the experiment begins).
         """
-        participant_info_questions = self.load_participant_info_config(
-            participant_info_config_filename
-        )
-        participant_info_dict = {}
 
-        for question in participant_info_questions:
-            participant_info_dict[question] = ""
+        dlg = gui.Dlg(title="Participant Information")
 
-        dlg = gui.DlgFromDict(dictionary=participant_info_dict, sortKeys=False, title=title)
+        if hasattr(self, "failed_participant_info_field"):
+            dlg.addText(
+                f'Please make sure you answered this question: "{self.failed_participant_info_field}"'
+            )
+        else:
+            dlg.addText(
+                'Thank you for participating in our experiment.\n\nPlease fill the form below!\nMake sure you answered every required question (they are marked with "[*]")!'
+            )
+            self.load_participant_questions_csv(csv_filename=participant_info_csv_filename)
+
+        # Add form field to the dialog
+        for field in self.participant_info_list:
+
+            field_message = field[0]
+
+            # Get previous answer for this field if it exists
+            prev_answer = self.participant_info.get(field_message, field[3])
+
+            # Mark question if it's required
+            if field[1] is True:
+                field_message = f"{field_message}[*]"
+
+            # Add fields
+            if field[2] == "text_field":
+                dlg.addField(field_message, prev_answer)
+            elif field[2] == "single_choice":
+                dlg.addField(field_message, choices=field[3].split(";"))
+
+        answers = dlg.show()
 
         if not dlg.OK:
             core.quit()
-        participant_info_dict["date"] = data.getDateStr()
-        participant_info_dict["experiment_name"] = self.experiment_name
-        participant_info_dict["psychopyVersion"] = self.psychopy_version
-        self.participant_info = participant_info_dict
+        else:
+            # Validate answers
+            for i, answer in enumerate(answers):
+                # Show dialog again if the question was required
+                field_name = self.participant_info_list[i][0]
+                if self.participant_info_list[i][1] == "True" and answer == "":
+                    dlg.hide()
+                    self.failed_participant_info_field = field_name
+                    self.get_participant_info(
+                        participant_info_csv_filename=participant_info_csv_filename,
+                        title=title,
+                    )
+                    break
+                else:
+                    self.participant_info[field_name] = answer
+
+        self.participant_info["date"] = data.getDateStr()
+        self.participant_info["experiment_name"] = self.experiment_name
+        self.participant_info["psychopyVersion"] = self.psychopy_version
+        print(self.participant_info)
 
     def load_input_from_csv(self, *, input_filename: str):
         """

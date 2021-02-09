@@ -1,0 +1,4 @@
+Question,Required,Type,Value
+Participant ID:,True,text_field,
+Age:,True,text_field,
+Gender,False,single_choice, male;female;non-binary

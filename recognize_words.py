@@ -87,7 +87,7 @@ trial = WordRecognition(
 
 # Save participant info
 trial.get_participant_info(
-    participant_info_config_filename="participant_info_questions.txt",
+    participant_info_csv_filename="participant-info-questions.csv",
     title="Please answer the following questions!",
 )
 
@@ -104,45 +104,11 @@ trial.play_stimuli()
 trial.save_output(
     output_csv_header=["word", "result", "reaction_time"],
     responses=trial.responses,
-    participant_name=trial.participant_info["Participant:"],
+    participant_name=trial.participant_info["Participant ID:"],
 )
 
 trial.display_outro(outro_filename="outro.txt")
 
 
-# # create the file that will store the results
-# output_filename = "results.csv"
-# input_filename = "input.csv"
-# if os.path.isfile(input_filename):
-#     with open(input_filename, newline="") as f:
-#         reader = csv.reader(f)
-#         INPUT_LIST = [line for line in reader]
-#         INPUT_HEADER = INPUT_LIST.pop(0)
-# else:
-#     raise Exception(f'"{input_filename}" is not found.')
-
-# with open(output_filename, "w") as f:
-#     f.write(f"participant,gender,age,{','.join(['word_' + str(i) for i, line in enumerate (INPUT_LIST)])}")
-
-# raise Exception("Stop")
-# # Present a dialog to ask relevant data
-
-# # open instructions
-# instructions_filename = "instructions.txt"
-# if os.path.isfile(instructions_filename):
-#     with open(instructions_filename, "r") as f:
-#         INSTRUCTIONS = f.read()
-# else:
-#     raise Exception(f'"{instructions_filename}" is not found.')
-
-# # create a window
-# win = visual.Window(fullscr=True, allowGUI=True)
-# globalClock = core.Clock()
-# trialClock = core.Clock()
-
-
-# # display instructions
-# message1 = visual.TextStim(win, text=INSTRUCTIONS)
-# message1.draw()
-# win.flip()
-# event.waitKeys()
+# Display outro
+trial.display_outro(outro_filename="outro.txt")
