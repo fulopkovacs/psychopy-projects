@@ -125,7 +125,6 @@ class Experiment:
         self.participant_info["date"] = data.getDateStr()
         self.participant_info["experiment_name"] = self.experiment_name
         self.participant_info["psychopyVersion"] = self.psychopy_version
-        print(self.participant_info)
 
     def load_input_from_csv(self, *, input_filename: str):
         """
