@@ -1,5 +1,7 @@
 # [Work in Progress] Experiments Created With `psychopy`
 
+![Build Release Artifacts](https://github.com/fulopkovacs/psychopy-projects/workflows/Create%20Release%20Artifacts/badge.svg)
+
 This repo will contain a bundle of experiments created with [`psychopy`](https://www.psychopy.org/). Feel free to fork/modify it.
 
 ## Motivation behind this project
