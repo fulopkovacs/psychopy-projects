@@ -28,7 +28,9 @@ This repo attempts to fill this gap, aimed at more advanced scientists/student w
 
 To see sample outputs for the experiment, check the contents of the `sample-data` directory next to the `trial.py` file. You can find more information about the experiment in the `README.md` file in the experiment's directory.
 
-## Experiments:
+## List of the Experiments
 > More experiments will be added in the future.
 
-- _word-recognition_: Participants must decide if the words presented to them are fake or not. ([more info](./experiments/word_recognition/))
+| Name | Short description | More info |
+| --- | --- | --- |
+| _word-recognition_ | Participants must decide if the words presented to them are fake or not. | [link](./experiments/word_recognition/) |
