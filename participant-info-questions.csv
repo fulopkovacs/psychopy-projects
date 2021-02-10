@@ -1,4 +1,6 @@
 Question,Required,Type,Value
 Participant ID:,True,text_field,
 Age:,True,text_field,
-Gender,True,single_choice, male;female;non-binary
+Gender,True,single_choice,male;female;non-binary
+Mother tongue:,True,text_field,
+Dominant hand:,True,single_choice,right;left;both
