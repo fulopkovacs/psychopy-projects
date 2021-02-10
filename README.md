@@ -21,9 +21,9 @@ This repo attempts to fill this gap, aimed at more advanced scientists/student w
 
 3. Choose an experiment from the `experiments` directory (e.g.: _word_recognition_) and run the `trial.py` file with either:
   - the `PsychoPy` desktop app
-    - Open the experiment:
+    - Open `trial.py`:
   ![Open experiment with the PsychoPy desktop app.](resources/mac-open-experiment.png)
-    - Open experiment in MacOS:
+    - Run `trial.py`:
   ![Run the experiment with the PsychoPy desktop app.](resources/mac-run-experiment.png)
   - or the terminal:
   ![Run the experiment the terminal.](resources/run-experiment-from-terminal.png)
