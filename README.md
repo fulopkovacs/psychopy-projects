@@ -13,7 +13,11 @@ This repo attempts to fill this gap, aimed at more advanced scientists/student w
   - [installation page](https://www.psychopy.org/download.html)
   > **WARNING**: Based on my experience, if you want to use `psychopy` from the command line, you have to install the `psychopy` package with `pip`, regardless of the OS.
 
-2. Choose an experiment from the `experiments` directory (e.g.: _word_recognition_) and run the `trial.py` file with either:
+2. Download the contents of this repository
+  - from [here](release-link)
+  - or simply clone the repository with `git`.
+
+3. Choose an experiment from the `experiments` directory (e.g.: _word_recognition_) and run the `trial.py` file with either:
   - the `PsychoPy` desktop app
     - Open the experiment:
   ![Open experiment with the PsychoPy desktop app.](resources/mac-open-experiment.png)
@@ -25,6 +29,6 @@ This repo attempts to fill this gap, aimed at more advanced scientists/student w
 To see sample outputs for the experiment, check the contents of the `sample-data` directory next to the `trial.py` file. You can find more information about the experiment in the `README.md` file in the experiment's directory.
 
 ## Experiments:
-> There will be more experiments
+> More experiments will be added in the future.
 
 - _word-recognition_: Participants must decide if the words presented to them are fake or not. ([more info](./experiments/word_recognition/))
