@@ -14,7 +14,7 @@ This repo attempts to fill this gap, aimed at more advanced scientists/student w
   > **WARNING**: Based on my experience, if you want to use `psychopy` from the command line, you have to install the `psychopy` package with `pip`, regardless of the OS.
 
 2. Download the contents of this repository
-  - from [here](release-link)
+  - from [here](https://github.com/fulopkovacs/psychopy-projects/releases/latest)
   - or simply clone the repository with `git`.
 
 3. Choose an experiment from the `experiments` directory (e.g.: _word_recognition_) and run the `trial.py` file with either:
