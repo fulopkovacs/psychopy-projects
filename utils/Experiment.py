@@ -36,15 +36,14 @@ class Experiment:
         """
         instructions_filepath = os.path.join(
             self.experiment_dir,
+            "input",
             instructions_filename,
         )
         if os.path.isfile(instructions_filepath):
             with open(instructions_filepath, "r") as f:
                 return f.read()
         else:
-            raise Exception(
-                f'"{os.path.join(instructions_filename, os.path.getcwd())}" is not found.'
-            )
+            raise Exception(f'"{instructions_filepath}" is not found.')
 
     def _load_participant_questions_csv(
         self,
@@ -57,6 +56,7 @@ class Experiment:
         """
         csv_filepath = os.path.join(
             self.experiment_dir,
+            "input",
             csv_filename,
         )
         if os.path.isfile(csv_filepath):
@@ -91,6 +91,7 @@ class Experiment:
 
         csv_filepath = os.path.join(
             self.experiment_dir,
+            "input",
             participant_info_csv_filename,
         )
         dlg = gui.Dlg(title="Participant Information")
@@ -154,6 +155,7 @@ class Experiment:
 
         filepath = os.path.join(
             self.experiment_dir,
+            "input",
             input_filename,
         )
         if os.path.isfile(filepath):
@@ -162,7 +164,7 @@ class Experiment:
                 self.stimuli_data = [line for line in reader]
                 self.stimuli_data_header = self.stimuli_data.pop(0)
         else:
-            raise Exception(f'"{os.path.join(os.getcwd(), input_filename)}" is not found.')
+            raise Exception(f'"{filepath}" is not found.')
 
     def save_participant_info(self, *, filename=str):
         """
