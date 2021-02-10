@@ -15,9 +15,9 @@ class Experiment:
         self.experiment_name = experiment_name
         self.psychopy_version = psychopy_version
         self.participant_info = {}
-        self.init_data_dir()
+        self._init_data_dir()
 
-    def init_data_dir(self):
+    def _init_data_dir(self):
         """
         Create directory for the data that is generated during the experiment,
         if it doesn't exist already.
@@ -29,7 +29,7 @@ class Experiment:
         else:
             os.mkdir("data")
 
-    def load_instructions(self, instructions_filename: str) -> str:
+    def _load_instructions(self, instructions_filename: str) -> str:
         """
         Load the instructions from the specified file
         (in the working directory).
@@ -46,18 +46,7 @@ class Experiment:
                 f'"{os.path.join(instructions_filename, os.path.getcwd())}" is not found.'
             )
 
-    def display_instructions(self, instructions_filename: str):
-        """
-        Display the instructions in a window.
-        """
-
-        instructions = self.load_instructions(instructions_filename)
-        message = visual.TextStim(self.win, text=instructions)
-        message.draw()
-        self.win.flip()
-        event.waitKeys()
-
-    def load_participant_questions_csv(
+    def _load_participant_questions_csv(
         self,
         csv_filename: str,
     ) -> list:
@@ -77,6 +66,17 @@ class Experiment:
                 self.participant_info_csv_header = self.participant_info_list.pop(0)
         else:
             raise Exception(f'"{os.path.join(os.getcwd(), csv_filename)}" is not found.')
+
+    def display_instructions(self, instructions_filename: str):
+        """
+        Display the instructions in a window.
+        """
+
+        instructions = self._load_instructions(instructions_filename)
+        message = visual.TextStim(self.win, text=instructions)
+        message.draw()
+        self.win.flip()
+        event.waitKeys()
 
     def get_participant_info(
         self,
@@ -103,7 +103,7 @@ class Experiment:
             dlg.addText(
                 'Thank you for participating in our experiment.\n\nPlease fill the form below!\nMake sure you answered every required question (they are marked with "[*]")!'
             )
-            self.load_participant_questions_csv(csv_filename=csv_filepath)
+            self._load_participant_questions_csv(csv_filename=csv_filepath)
 
         # Add form field to the dialog
         for field in self.participant_info_list:
@@ -204,7 +204,7 @@ class Experiment:
 
     def display_outro(self, *, outro_filename: str):
         """Display outro."""
-        outro = self.load_instructions(outro_filename)
+        outro = self._load_instructions(outro_filename)
         message = visual.TextStim(self.win, text=outro)
         message.draw()
         self.win.flip()
