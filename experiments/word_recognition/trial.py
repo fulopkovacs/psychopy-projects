@@ -1,8 +1,13 @@
+from pathlib import Path
 from psychopy import core, visual, event
-import random
 import os
+import random
+import sys
 
-from Experiment import Experiment
+# fmt: off
+sys.path.append(str(Path(__file__).parents[2]))
+from utils.Experiment import Experiment
+# fmt: on
 
 
 # Create a subclass from Experiment
