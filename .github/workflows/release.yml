@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-    if: github.event.base_ref == 'refs/heads/main' # skip release if it's not on main
     name: Create and Upload Release Assets
     runs-on: ubuntu-latest
     steps:
