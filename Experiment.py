@@ -4,18 +4,27 @@ from psychopy import visual, event, gui, core, data
 
 
 class Experiment:
-    def __init__(self, *, experiment_name: str, psychopy_version: str):
-        self.init_data_dir()
+    def __init__(
+        self,
+        *,
+        experiment_name: str,
+        psychopy_version: str,
+        experiment_dir: str,
+    ):
+        self.experiment_dir = experiment_dir
         self.experiment_name = experiment_name
         self.psychopy_version = psychopy_version
         self.participant_info = {}
+        self.init_data_dir()
 
     def init_data_dir(self):
         """
         Create directory for the data that is generated during the experiment,
         if it doesn't exist already.
         """
-        if os.path.isdir("data"):
+
+        dir_path = os.path.join(self.experiment_dir, "data")
+        if os.path.isdir(dir_path):
             pass
         else:
             os.mkdir("data")
@@ -25,7 +34,11 @@ class Experiment:
         Load the instructions from the specified file
         (in the working directory).
         """
-        if os.path.isfile(instructions_filename):
+        instructions_filepath = os.path.join(
+            self.experiment_dir,
+            instructions_filename,
+        )
+        if os.path.isfile(instructions_filepath):
             with open(instructions_filename, "r") as f:
                 return f.read()
         else:
@@ -53,7 +66,11 @@ class Experiment:
         starting the experiment from a csv (that is located in
         the working directory).
         """
-        if os.path.isfile(csv_filename):
+        csv_filepath = os.path.join(
+            self.experiment_dir,
+            csv_filename,
+        )
+        if os.path.isfile(csv_filepath):
             with open(csv_filename, newline="") as f:
                 reader = csv.reader(f)
                 self.participant_info_list = [line for line in reader]
@@ -72,6 +89,10 @@ class Experiment:
         (before the experiment begins).
         """
 
+        csv_filepath = os.path.join(
+            self.experiment_dir,
+            participant_info_csv_filename,
+        )
         dlg = gui.Dlg(title="Participant Information")
 
         if hasattr(self, "failed_participant_info_field"):
@@ -82,7 +103,7 @@ class Experiment:
             dlg.addText(
                 'Thank you for participating in our experiment.\n\nPlease fill the form below!\nMake sure you answered every required question (they are marked with "[*]")!'
             )
-            self.load_participant_questions_csv(csv_filename=participant_info_csv_filename)
+            self.load_participant_questions_csv(csv_filename=csv_filepath)
 
         # Add form field to the dialog
         for field in self.participant_info_list:
@@ -130,7 +151,12 @@ class Experiment:
         """
         Load stimuli data from csv (in the working directory).
         """
-        if os.path.isfile(input_filename):
+
+        filepath = os.path.join(
+            self.experiment_dir,
+            input_filename,
+        )
+        if os.path.isfile(filepath):
             with open(input_filename, newline="") as f:
                 reader = csv.reader(f)
                 self.stimuli_data = [line for line in reader]
@@ -144,7 +170,7 @@ class Experiment:
         """
 
         fieldnames = self.participant_info.keys()
-        filepath = os.path.join("data", filename)
+        filepath = os.path.join(self.experiment_dir, "data", filename)
 
         if not os.path.isfile(filepath):
             with open(filepath, "w", newline="") as f:
@@ -165,9 +191,11 @@ class Experiment:
         """
         Save the response of the participant to a file.
         """
-        filename = f"{participant_name}_{data.getDateStr()}.csv"
 
-        with open(os.path.join(os.getcwd(), "data", filename), "w") as f:
+        filename = f"{participant_name}_{data.getDateStr()}.csv"
+        filepath = os.path.join(self.experiment_dir, "data", filename)
+
+        with open(filepath, "w") as f:
             base = [output_csv_header]
             base.extend(responses)
             # lines = ["".join(line) for line in base]

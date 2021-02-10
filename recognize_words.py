@@ -1,5 +1,6 @@
 from psychopy import core, visual, event
 import random
+import os
 
 from Experiment import Experiment
 
@@ -11,10 +12,12 @@ class WordRecognition(Experiment):
         experiment_name: str,
         psychopy_version: str,
         input_filename: str,
+        experiment_dir: str,
         randomize_stimuli: bool,
     ):
         super().__init__(
             experiment_name=experiment_name,
+            experiment_dir=experiment_dir,
             psychopy_version=psychopy_version,
         )
 
@@ -77,6 +80,7 @@ class WordRecognition(Experiment):
 trial = WordRecognition(
     experiment_name="Word recognition",
     psychopy_version="2020.2.10",
+    experiment_dir=os.path.dirname(__file__),
     input_filename="stimuli.csv",
     randomize_stimuli=True,
 )
