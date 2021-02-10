@@ -27,7 +27,7 @@ class Experiment:
         if os.path.isdir(dir_path):
             pass
         else:
-            os.mkdir("data")
+            os.mkdir(dir_path)
 
     def _load_instructions(self, instructions_filename: str) -> str:
         """
@@ -39,7 +39,7 @@ class Experiment:
             instructions_filename,
         )
         if os.path.isfile(instructions_filepath):
-            with open(instructions_filename, "r") as f:
+            with open(instructions_filepath, "r") as f:
                 return f.read()
         else:
             raise Exception(
@@ -60,7 +60,7 @@ class Experiment:
             csv_filename,
         )
         if os.path.isfile(csv_filepath):
-            with open(csv_filename, newline="") as f:
+            with open(csv_filepath, newline="") as f:
                 reader = csv.reader(f)
                 self.participant_info_list = [line for line in reader]
                 self.participant_info_csv_header = self.participant_info_list.pop(0)
@@ -157,7 +157,7 @@ class Experiment:
             input_filename,
         )
         if os.path.isfile(filepath):
-            with open(input_filename, newline="") as f:
+            with open(filepath, newline="") as f:
                 reader = csv.reader(f)
                 self.stimuli_data = [line for line in reader]
                 self.stimuli_data_header = self.stimuli_data.pop(0)
