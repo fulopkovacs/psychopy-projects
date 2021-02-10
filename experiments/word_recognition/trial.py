@@ -85,7 +85,7 @@ class WordRecognition(Experiment):
 trial = WordRecognition(
     experiment_name="Word recognition",
     psychopy_version="2020.2.10",
-    experiment_dir=os.path.dirname(__file__),
+    experiment_dir=os.path.dirname(os.path.abspath(__file__)),
     input_filename="stimuli.csv",
     randomize_stimuli=True,
 )

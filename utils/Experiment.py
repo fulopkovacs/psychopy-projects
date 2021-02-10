@@ -65,7 +65,7 @@ class Experiment:
                 self.participant_info_list = [line for line in reader]
                 self.participant_info_csv_header = self.participant_info_list.pop(0)
         else:
-            raise Exception(f'"{os.path.join(os.getcwd(), csv_filename)}" is not found.')
+            raise Exception(f'"{csv_filepath}" is not found.')
 
     def display_instructions(self, instructions_filename: str):
         """
