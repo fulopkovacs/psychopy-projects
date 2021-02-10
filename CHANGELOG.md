@@ -1,1 +1,1 @@
-- New experiment: _Word Recognition_
+- Minor changes in the READMEs to make them more concise and clear
