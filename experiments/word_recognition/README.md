@@ -17,4 +17,4 @@ The inputs required for the experiment are located in the `data` directory.
 The outputs created by the experiment are located in the `data` directory.
 
   - `data/participants-summary.csv`: a summary that contains the form responses of every participant
-  - `data/<id>-<data>.csv`: the recorded and evaluated answers of the participant (the filename for `sample_participant` would be: `sample_participant-2021_febr_09_2216.csv`)
+  - `data/<id>-<data>.csv`: the recorded and evaluated answers of the participant (a filename for `sample_participant` could be: `sample_participant-2021_febr_09_2216.csv`)
