@@ -3,3 +3,7 @@ data/
 
 # omit pycache
 __pycache__/
+
+# omit vim swap files
+*.swp
+*.swo
