@@ -104,11 +104,20 @@ trial.win = visual.Window(
     color="black",
 )
 
-# display instructions
+# Display instructions
 trial.display_instructions("instructions.txt")
+
+# Measure the duration of the experiment
+# (Starts AFTER the "instructions" screen)
+duration_clock = core.Clock()
 
 # Play stimuli
 trial.play_stimuli()
+
+# Save duration
+duration = duration_clock.getTime()
+del duration_clock
+trial.participant_info["duration"] = duration
 
 # Save output
 trial.save_output(
