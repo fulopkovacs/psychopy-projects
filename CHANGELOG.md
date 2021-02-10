@@ -1,1 +1,1 @@
-- Create alpha release
+- Fixed typo in release.yml
