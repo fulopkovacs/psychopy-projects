@@ -1,1 +1,1 @@
-- Fixed typo in release.yml
+- New experiment: _Word Recognition_
