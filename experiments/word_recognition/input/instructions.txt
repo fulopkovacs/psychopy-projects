@@ -2,6 +2,6 @@ Thank you for participating in this experiment!
 
 In the following experiment you'll be shown a series of words.
 
-After each word, you'll have to decide whether they are real or not. Please press "n" if you think the word is not real, and "r" if you think it is.
+For each word, you'll have to decide whether it is real or not. Please press "n" if you think the word is not real, and "r" if you think it is.
 
 Are you ready? Press any key to start the experiment!

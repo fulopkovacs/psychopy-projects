@@ -1,7 +1,7 @@
 # Word Recognition Test
 
 ## Description
-In this experiment the participant is shown a series of images for a short amount of time (200 ms each), and has to decide whether the word presented was real (_press the "r" key_), or not (_"n" key_). The responses are evaluated and recorded along with reaction time and other useful pieces of information.
+In this experiment the participant is shown a series of words and has to decide whether the currently presented word is real (_press the "r" key_), or not (_"n" key_). The responses are evaluated and saved along with reaction time and other useful pieces of information.
 
 ## Inputs
 

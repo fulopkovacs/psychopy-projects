@@ -45,13 +45,13 @@ class WordRecognition(Experiment):
         """
         Present a single stimulus.
         """
-        # Display the stimulus for 200 ms
         word = visual.TextStim(win=self.win, text=stimulus[0])
         word.draw()
         self.win.flip()
-        core.wait(0.2)
         self.clock.reset()
+        self.register_response(stimulus)
         self.win.flip()
+        core.wait(0.2)
 
     def register_response(self, stimulus: list):
         """
@@ -78,7 +78,6 @@ class WordRecognition(Experiment):
 
         for stimulus in stimuli:
             self.present_stimulus(stimulus)
-            self.register_response(stimulus)
 
 
 # Pause until there's a keypress
