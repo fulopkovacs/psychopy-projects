@@ -57,9 +57,9 @@ class WordRecognition(Experiment):
         """
         Register and evaluate the response of the participant to the presented stimulus.
         """
-        response = event.waitKeys(keyList=["f", "r"])[0]
-        if (response.lower() == "f" and stimulus[1] == "fake") or (
-            response.lower() == "r" and stimulus[1] != "fake"
+        response = event.waitKeys(keyList=["n", "r"])[0]
+        if (response.lower() == "n" and stimulus[1] == "non-word") or (
+            response.lower() == "r" and stimulus[1] != "non-word"
         ):
             result = "correct"
         else:

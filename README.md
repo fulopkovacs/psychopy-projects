@@ -35,4 +35,4 @@ To see sample outputs for the experiment, check the contents of the `sample-data
 
 | Name | Short description | More info |
 | --- | --- | --- |
-| _word-recognition_ | Participants must decide if the words presented to them are fake or not. | [link](./experiments/word_recognition/) |
+| _word-recognition_ | Participants must decide if the words presented to them are real or not. | [link](./experiments/word_recognition/) |
