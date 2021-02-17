@@ -1,0 +1,7 @@
+In the following part of the experiment you will be shown pictures of animals and objects again, but the keys corresponding to the objects and animals have switched.
+
+If you see an animal, press the RIGHT arrow key.
+
+If you see an object, press the LEFT arrow key.
+
+Press any key to start the experiment.
