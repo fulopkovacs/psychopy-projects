@@ -36,3 +36,4 @@ To see sample outputs for the experiment, check the contents of the `sample-data
 | Name | Short description | More info |
 | --- | --- | --- |
 | _word-recognition_ | Participants must decide if the words presented to them are real or not. | [link](./experiments/word_recognition/) |
+| _image-sorting_ | Participants are asked to diecide if the images presented depict animals or objects. | [link](./experiments/image_sorting/) |

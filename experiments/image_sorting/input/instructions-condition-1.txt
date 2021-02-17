@@ -1,0 +1,9 @@
+Thank you for participating in this experiment!
+
+In the following part of the experiment you will be shown pictures of animals and objects.
+
+If you see an animal, press the LEFT arrow key.
+
+If you see an object, press the RIGHT arrow key.
+
+Press any key to start the experiment.

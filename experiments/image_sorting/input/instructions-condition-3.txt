@@ -1,0 +1,12 @@
+In the following part of the experiment you will be shown pictures of animals and objects again.
+
+If the image is upside down and depicts an...
+  - ...animal: press the LEFT arrow key
+  - ...object: press the RIGHT arrow key.
+
+If the image is NOT upside down and depicts an...
+  - ...animal: press the RIGHT arrow key
+  - ...object: press the LEFT arrow key.
+
+In this section, you'll will not receive feedback after your response.
+Press any key to start the experiment.

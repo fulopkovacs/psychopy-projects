@@ -1,6 +1,11 @@
-import os
 import csv
-from psychopy import visual, event, gui, core, data
+import os
+
+from psychopy import core
+from psychopy import data
+from psychopy import event
+from psychopy import gui
+from psychopy import visual
 
 
 class Experiment:
@@ -73,7 +78,11 @@ class Experiment:
         """
 
         instructions = self._load_instructions(instructions_filename)
-        message = visual.TextStim(self.win, text=instructions)
+        message = visual.TextStim(
+            self.win,
+            text=instructions,
+            height=0.05,
+        )
         message.draw()
         self.win.flip()
         event.waitKeys()
