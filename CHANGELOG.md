@@ -1,1 +1,1 @@
-Added new experiment "_image_sorting_".
+- New experiment: _Image Sorting_
